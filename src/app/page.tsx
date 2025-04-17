@@ -104,7 +104,7 @@ const validate = () => {
   return isValid;
 }
 
-const handleChange = (field: any, value: any) => {
+const handleChange = (field: string, value: string) => {
   if(field === 'name') {
     setName(value);
   }
