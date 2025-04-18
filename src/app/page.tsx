@@ -195,16 +195,17 @@ const Total = () => {
     console.log(addOn)
 
   return (
-    <Box sx={{backgroundColor: 'hsl(217, 100%, 97%)', height: '100vh', width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+    <Box sx={{backgroundColor: 'hsl(217, 100%, 97%)', height: {md: '100vh', xs: '100vh'}, width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
     <Grid container sx={{
       backgroundColor: 'hsl(231, 100%, 99%)', 
       padding: {md: '20px', xs: '0'}, 
-      height: {xs: '100vh', md: '90vh' },
+      height: {xs: '80%', md: '90vh' },
+      maxHeight: {xs: '100vh', md: '90vh' },
       minWidth: {xs: '100%', md: '70%'},
       display: 'flex',
       justifyContent: 'space-between',
       }}>
-        <Grid size = {{xs: 12, md: 4}} sx = {{background: 'linear-gradient(to bottom, hsl(216, 91.00%, 34.90%), hsl(197, 93.60%, 57.30%), hsl(298, 93.60%, 57.30%), hsl(0, 93.60%, 57.30%))', borderRadius: '10px', padding: '20px', color:  'white'}}>
+        <Grid size = {{xs: 12, md: 4}} sx = {{background: 'linear-gradient(to bottom, hsl(216, 91.00%, 34.90%), hsl(197, 93.60%, 57.30%), hsl(298, 93.60%, 57.30%), hsl(0, 93.60%, 57.30%))', borderRadius: {md: '10px', xs: '0'}, padding: '20px', color:  'white', marginTop: {xs: '-70px', md: '0'}}}>
         <Box sx={{ maxWidth: 400 }}>
         <Stepper 
         nonLinear 
@@ -249,7 +250,7 @@ const Total = () => {
             </Box>
           </Box>
         ) : (
-          <Box sx={{height: {md: '100%', xs: '100vh'}, display: 'flex', flexDirection: 'column', justifyContent: {md: 'space-between', xs: 'normal'},}}>
+          <Box sx={{maxHeight: {md: '100%', xs: '100vh'}, display: 'flex', flexDirection: 'column', justifyContent: {md: 'space-between', xs: 'normal'},}}>
             <Box sx={{py: 1, px: {xs: '15px', md: '0'}, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
             {activeStep === 0 ?
              <Box>
@@ -387,7 +388,7 @@ const Total = () => {
                     </Typography>
                   <Typography color='hsl(231, 11%, 63%)' sx={{fontSize: {xs: '10px', md: '13px'}}}>Access to multiplayer games</Typography>
                   </Stack>
-                  <Typography flexWrap={'wrap'} sx={{display: 'flex', justifyContent: 'end', fontSize: {xs: '10px', md: '13px'}}}>
+                  <Typography color='hsl(213, 96%, 18%)' flexWrap={'wrap'} sx={{display: 'flex', justifyContent: 'end', fontSize: {xs: '10px', md: '13px'}}}>
                     {check.monthly ? '+$1/mo' : '+$10/yr'}
                   </Typography>
                 </Box>
@@ -402,7 +403,7 @@ const Total = () => {
                      </Typography>
                   <Typography flexWrap={'wrap'} color='hsl(231, 11%, 63%)' sx={{fontSize: {xs: '10px', md: '13px'}}}>Extra 1TB of cloud save</Typography>
                   </Stack>
-                  <Typography sx={{display: 'flex', justifyContent: 'end', fontSize: {xs: '10px', md: '13px'}}}> {check.monthly ? '+$1/mo' : '+$20/yr'}</Typography>
+                  <Typography color='hsl(213, 96%, 18%)' sx={{display: 'flex', justifyContent: 'end', fontSize: {xs: '10px', md: '13px'}}}> {check.monthly ? '+$1/mo' : '+$20/yr'}</Typography>
                 </Box>
                 <Box sx={{
                   border: '1px solid hsl(231, 11%, 63%)',
@@ -413,7 +414,7 @@ const Total = () => {
                   <Typography flexWrap={'wrap'} color='hsl(213, 96%, 18%)' sx={{fontSize: {xs: '12px', md: '15px'}, fontWeight: 'bold'}}> Customizable Profile </Typography>
                   <Typography flexWrap={'wrap'} color='hsl(231, 11%, 63%)' sx={{fontSize: {xs: '10px', md: '13px'}}}>Custom theme on your profile</Typography>
                   </Stack>
-                  <Typography sx={{display: 'flex', justifyContent: 'end', fontSize: {xs: '10px', md: '13px'}}}>{check.monthly ? '+$1/mo' : '+$20/yr'}</Typography>
+                  <Typography color='hsl(213, 96%, 18%)' sx={{display: 'flex', justifyContent: 'end', fontSize: {xs: '10px', md: '13px'}}}>{check.monthly ? '+$1/mo' : '+$20/yr'}</Typography>
                 </Box>
               </Box>
             </Box> : null}
@@ -442,7 +443,7 @@ const Total = () => {
                 <Stack key={index} direction={'row'} sx={{display: 'flex', gap: '10px', padding: '5px',
                   alignItems: 'center', justifyContent: 'space-between',}}>                   
                   <Typography sx={{fontSize: {xs: '10px', md: '14px'},  color: 'hsl(231, 11%, 63%)',}}>{item.title}</Typography>
-                <Typography sx={{fontSize: {xs: '10px', md: '14px'},  color: 'hsl(213, 96%, 18%',}}>{item.price}</Typography>
+                <Typography sx={{fontSize: {xs: '10px', md: '14px'},  color: 'hsl(213, 96%, 18%)', fontWeight: 'bold'}}>{item.price}</Typography>
                 </Stack>   
                 ))}             
               </Box>
@@ -450,45 +451,50 @@ const Total = () => {
               <Stack direction={'row'} sx={{display: 'flex', gap: '10px', padding: '5px',
                   alignItems: 'center', justifyContent: 'space-between', mt: '1rem', width: '90%'}}>
                   <Typography sx={{fontSize: {xs: '12px', md: '16px'},  color: 'hsl(231, 11%, 63%)',}}>Total (per month/year)</Typography>
-                <Typography sx={{fontSize: {xs: '12px', md: '16px'},  color: 'hsl(213, 96%, 18%', fontWeight: 'bold'}}>
+                <Typography sx={{fontSize: {xs: '12px', md: '16px'},  color: 'hsl(213, 96%, 18%)', fontWeight: 'bold'}}>
                   ${Total()} {check.monthly? '/mo' : '/yr'}
                 </Typography>
                 </Stack>   
-            </Box>: null}
+            </Box>: null} 
+                     
             </Box>
-
-            <Box sx={{ display: 'flex', height: '100%', alignItems: 'flex-end', width :'90%', padding: '20px', justifyContent: 'space-between', }}>
-              <Button
-                color="inherit"
-                disabled={activeStep === 0 || !isFormValid}
-                onClick={handleBack}
-                >
-                Back
-              </Button>
-              <Button
-              onClick={handleNext}
-              disabled= {!isFormValid}>
-                Next
-              </Button>
-              {activeStep !== steps.length &&
-                (completed[activeStep] ? (
-                  <Typography variant="caption" sx={{ display: 'inline-block' }}>
-                    Step {activeStep + 1} already completed
-                  </Typography>
-                ) : (
-                  <Button 
-                  onClick={handleComplete}
-                  disabled={!isFormValid}
-                  >
-                    {completedSteps() === totalSteps() - 1
-                    ? 'Finish'
-                    : 'In Progress'}
-                    </Button>
-                    ))} 
-            </Box>
-          </Box>
+        </Box>    
         )}
+      <Box sx={{ display: 'flex', alignItems: 'center', width :'90%', padding: '20px', justifyContent: 'space-between', }}>
+        <Button
+          color="inherit"
+          disabled={activeStep === 0 || !isFormValid}
+          onClick={handleBack}
+          sx= {{fontSize: {xs: '11px', md: '14px'}, color: 'black', textTransform: 'none'}}
+          >
+          Back
+        </Button>
+        <Button
+        sx= {{fontSize: {xs: '11px', md: '14px'}, color: 'black', textTransform: 'none'}}
+        onClick={handleNext}
+        disabled= {!isFormValid}>
+          Next
+        </Button>
+        {activeStep !== steps.length &&
+          (completed[activeStep] ? (
+            <Typography
+            variant="caption" sx={{ display: 'inline-block', fontSize: {xs: '11px', md: '14px'}, color: 'black', textTransform: 'none' }}>
+              Step {activeStep + 1} already completed
+            </Typography>
+          ) : (
+            <Button 
+            onClick={handleComplete}
+            disabled={!isFormValid}
+            sx= {{fontSize: {xs: '11px', md: '14px'}, color: 'black', textTransform: 'none'}}
+            >
+              {completedSteps() === totalSteps() - 1
+              ? 'Finish'
+              : 'In Progress'}
+              </Button>
+              ))} 
+            </Box>
         </Grid>
+
       </Grid>  
       </Box>
   )
