@@ -205,7 +205,7 @@ const Total = () => {
       display: 'flex',
       justifyContent: 'space-between',
       }}>
-        <Grid size = {{xs: 12, md: 4}} sx = {{background: 'linear-gradient(to bottom, hsl(216, 91.00%, 34.90%), hsl(197, 93.60%, 57.30%), hsl(298, 93.60%, 57.30%), hsl(0, 93.60%, 57.30%))', borderRadius: {md: '10px', xs: '0'}, padding: '20px', color:  'white', marginTop: {xs: '-70px', md: '0'}}}>
+        <Grid size = {{xs: 12, md: 4}} sx = {{background: 'linear-gradient(to bottom, hsl(216, 91.00%, 34.90%), hsl(197, 93.60%, 57.30%), hsl(298, 93.60%, 57.30%), hsl(0, 93.60%, 57.30%))', borderRadius: {md: '10px', xs: '0'}, padding: '20px', color:  'white', marginTop: {xs: '-75px', md: '0'}}}>
         <Box sx={{ maxWidth: 400 }}>
         <Stepper 
         nonLinear 
@@ -367,9 +367,9 @@ const Total = () => {
                   alignItems: 'center', justifyContent: 'center', 
                   width: '90%', marginTop: '2rem'
                 }}>
-                  <Typography>Monthly</Typography>
+                  <Typography  color='hsl(213, 96%, 18%)' sx={{fontSize: {xs: '12px', md: '15px'}, fontWeight: 'bold'}}>Monthly</Typography>
                   <Switch checked = {check.yearly} onChange={handleSwitchToggle} />
-                  <Typography>Yearly</Typography>
+                  <Typography  color='hsl(213, 96%, 18%)' sx={{fontSize: {xs: '12px', md: '15px'}, fontWeight: 'bold'}}>Yearly</Typography>
                 </Stack>
             </Box> : null}
             
