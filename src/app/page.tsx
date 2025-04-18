@@ -436,7 +436,7 @@ const Total = () => {
                     fontSize: {xs: '10px', md: '14px'},  color: 'hsl(231, 11%, 63%)', textDecoration: 'underline', textTransform: 'none'
                   }} >Change</Button>
                 </Box>
-                <Typography sx={{fontSize: {xs: '12px', md: '16px'},  color: 'hsl(213, 96%, 18%', fontWeight: 'bold'}}> {selectedAddOn.price}</Typography>
+                <Typography sx={{fontSize: {xs: '12px', md: '16px'},  color: 'hsl(213, 96%, 18%)', fontWeight: 'bold'}}> {selectedAddOn.price}</Typography>
                 </Stack>
                 <Divider sx={{height: '100%', width: '100%'}} />  
                 {addOn.map((item, index) => (
